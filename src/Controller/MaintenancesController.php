@@ -53,11 +53,11 @@ class MaintenancesController extends AppController
         if ($this->request->is('post')) {
             $maintenance = $this->Maintenances->patchEntity($maintenance, $this->request->getData());
             if ($this->Maintenances->save($maintenance)) {
-                $this->Flash->success(__('The maintenance has been saved.'));
+                $this->Flash->success(__('La date de maintencances est sauvegardés.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The maintenance could not be saved. Please, try again.'));
+            $this->Flash->error(__('Réessaye.'));
         }
         $computers = $this->Maintenances->Computers->find('list', ['limit' => 200])->all();
         $this->set(compact('maintenance', 'computers'));

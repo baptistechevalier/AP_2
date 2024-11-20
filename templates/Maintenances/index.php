@@ -18,11 +18,11 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($maintenances as $maintenance): ?>
+                <?php foreach ($maintenances as $maintenance):?>
                 <tr>
                     <td><?= $this->Number->format($maintenance->id) ?></td>
                     <td><?= h($maintenance->dates) ?></td>
-                    <td><?= $maintenance->has('computer') ? $this->Html->link($maintenance->computer->processeur, ['controller' => 'Computers', 'action' => 'view', $maintenance->computer->id]) : '' ?></td>
+                    <td><?= $maintenance->has('computer') ? $this->Html->link($maintenance->computer->id, ['controller' => 'Computers', 'action' => 'view', $maintenance->computer->id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $maintenance->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $maintenance->id]) ?>
