@@ -1,0 +1,40 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Computer $computer
+ * @var string[]|\Cake\Collection\CollectionInterface $games
+ */
+?>
+<div class="row">
+    <aside class="column">
+        <div class="side-nav">
+            <h4 class="heading"><?= __('Actions') ?></h4>
+            <?= $this->Form->postLink(
+                __('Delete'),
+                ['action' => 'delete', $computer->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $computer->id), 'class' => 'side-nav-item']
+            ) ?>
+            <?= $this->Html->link(__('List Computers'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+        </div>
+    </aside>
+    <div class="column-responsive column-80">
+        <div class="computers form content">
+            <?= $this->Form->create($computer) ?>
+            <fieldset>
+                <legend><?= __('Edit Computer') ?></legend>
+                <?php
+                    echo $this->Form->control('processeur');
+                    echo $this->Form->control('os');
+                    echo $this->Form->control('ram');
+                    echo $this->Form->control('gpu');
+                    echo $this->Form->control('stockage');
+                    echo $this->Form->control('alim');
+                    echo $this->Form->control('disponiblie');
+                    echo $this->Form->control('games._ids', ['options' => $games]);
+                ?>
+            </fieldset>
+            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->end() ?>
+        </div>
+    </div>
+</div>
