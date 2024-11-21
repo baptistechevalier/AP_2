@@ -50,11 +50,11 @@ class ComputersController extends AppController
         if ($this->request->is('post')) {
             $computer = $this->Computers->patchEntity($computer, $this->request->getData());
             if ($this->Computers->save($computer)) {
-                $this->Flash->success(__('The computer has been saved.'));
+                $this->Flash->success(__('L\'ordinateur a bien été ajouté.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The computer could not be saved. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
         $games = $this->Computers->Games->find('list', ['limit' => 200])->all();
         $this->set(compact('computer', 'games'));
@@ -75,11 +75,11 @@ class ComputersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $computer = $this->Computers->patchEntity($computer, $this->request->getData());
             if ($this->Computers->save($computer)) {
-                $this->Flash->success(__('The computer has been saved.'));
+                $this->Flash->success(__('Modifications sauvegardées.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The computer could not be saved. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
         $games = $this->Computers->Games->find('list', ['limit' => 200])->all();
         $this->set(compact('computer', 'games'));
@@ -97,9 +97,9 @@ class ComputersController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $computer = $this->Computers->get($id);
         if ($this->Computers->delete($computer)) {
-            $this->Flash->success(__('The computer has been deleted.'));
+            $this->Flash->success(__('Ordinateur supprimé.'));
         } else {
-            $this->Flash->error(__('The computer could not be deleted. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
 
         return $this->redirect(['action' => 'index']);

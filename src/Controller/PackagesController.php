@@ -61,11 +61,11 @@ class PackagesController extends AppController
         if ($this->request->is('post')) {
             $package = $this->Packages->patchEntity($package, $this->request->getData());
             if ($this->Packages->save($package)) {
-                $this->Flash->success(__('The package has been saved.'));
+                $this->Flash->success(__('Le forfait est bien ajouté.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The package could not be saved. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
         $this->set(compact('package'));
     }
@@ -85,11 +85,11 @@ class PackagesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $package = $this->Packages->patchEntity($package, $this->request->getData());
             if ($this->Packages->save($package)) {
-                $this->Flash->success(__('The package has been saved.'));
+                $this->Flash->success(__('Le forfai est sauvegardés.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The package could not be saved. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement'));
         }
         $this->set(compact('package'));
     }
@@ -106,9 +106,9 @@ class PackagesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $package = $this->Packages->get($id);
         if ($this->Packages->delete($package)) {
-            $this->Flash->success(__('The package has been deleted.'));
+            $this->Flash->success(__('Le forfait est bien supprimé.'));
         } else {
-            $this->Flash->error(__('The package could not be deleted. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
 
         return $this->redirect(['action' => 'index']);

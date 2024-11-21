@@ -78,11 +78,11 @@ class MaintenancesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $maintenance = $this->Maintenances->patchEntity($maintenance, $this->request->getData());
             if ($this->Maintenances->save($maintenance)) {
-                $this->Flash->success(__('The maintenance has been saved.'));
+                $this->Flash->success(__('Maintenances sauvegardés.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The maintenance could not be saved. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
         $computers = $this->Maintenances->Computers->find('list', ['limit' => 200])->all();
         $this->set(compact('maintenance', 'computers'));
@@ -100,9 +100,9 @@ class MaintenancesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $maintenance = $this->Maintenances->get($id);
         if ($this->Maintenances->delete($maintenance)) {
-            $this->Flash->success(__('The maintenance has been deleted.'));
+            $this->Flash->success(__('Maintenances supprimés'));
         } else {
-            $this->Flash->error(__('The maintenance could not be deleted. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
 
         return $this->redirect(['action' => 'index']);

@@ -50,11 +50,11 @@ class GamesController extends AppController
         if ($this->request->is('post')) {
             $game = $this->Games->patchEntity($game, $this->request->getData());
             if ($this->Games->save($game)) {
-                $this->Flash->success(__('The game has been saved.'));
+                $this->Flash->success(__('Le jeu est sauvgardé.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The game could not be saved. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
         $computers = $this->Games->Computers->find('list', ['limit' => 200])->all();
         $this->set(compact('game', 'computers'));
@@ -75,11 +75,11 @@ class GamesController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $game = $this->Games->patchEntity($game, $this->request->getData());
             if ($this->Games->save($game)) {
-                $this->Flash->success(__('The game has been saved.'));
+                $this->Flash->success(__('Le jeu est sauvegardé'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The game could not be saved. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
         $computers = $this->Games->Computers->find('list', ['limit' => 200])->all();
         $this->set(compact('game', 'computers'));
@@ -97,9 +97,9 @@ class GamesController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $game = $this->Games->get($id);
         if ($this->Games->delete($game)) {
-            $this->Flash->success(__('The game has been deleted.'));
+            $this->Flash->success(__('Le jeu est supprimé.'));
         } else {
-            $this->Flash->error(__('The game could not be deleted. Please, try again.'));
+            $this->Flash->error(__('L\'action n\'a pas abouti, merci de réessayer ultérieurement.'));
         }
 
         return $this->redirect(['action' => 'index']);

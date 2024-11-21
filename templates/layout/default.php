@@ -40,16 +40,10 @@ $cakeDescription = 'Arras Game';
         </div>
         <div class="top-nav-links">
             <a target="_blank" rel="noopener" href="/AP_2/packages/liste">Nos forfaits</a>
-            <?php $user = $this->request->getAttribute('identity'); 
-            
-            if($role =='admin'){
-                ?>
-                <a target="_blank" rel="noopener" href="/AP_2/packages/index">Géré les utilisateurs</a>
-                <a target="_blank" rel="noopener" href="/AP_2/users/index">Géré les forfaits</a>
-                <a target="_blank" rel="noopener" href="/AP_2/computer/index">Géré les ordinateurs</a>
-                <a target="_blank" rel="noopener" href="/AP_2/games/index">Géré les jeux</a>
-                <?php
-            } ?>
+            <a rel="noopener" href="/AP_2/users/index">Géré les utilisateurs</a>
+            <a rel="noopener" href="/AP_2/packages/index">Géré les forfaits</a>
+            <a rel="noopener" href="/AP_2/computers/index">Géré les ordinateurs</a>
+            <a rel="noopener" href="/AP_2/games/index">Géré les jeux</a>
             
         </div>
     </nav>
